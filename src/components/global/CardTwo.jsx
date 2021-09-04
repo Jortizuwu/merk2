@@ -11,7 +11,7 @@ export const CardTwo = ({ image, price, inter = true, title, id }) => {
     e.stopPropagation();
     dispatch(deleteSaveList(id));
   };
-  
+
   const formatterPeso = new Intl.NumberFormat("es-CO", {
     style: "currency",
     currency: "COP",
@@ -47,12 +47,13 @@ export const CardTwo = ({ image, price, inter = true, title, id }) => {
         </div>
         <div className="flex mt-2 space-x-3 mb-1 text-sm font-semibold uppercase">
           <div className="flex-auto flex space-x-3">
-            <button
+            <Link
+              to="/chat"
               className="w-full flex items-center justify-center bg-black text-white font-semibold"
               type="submit"
             >
               Comprar ahora
-            </button>
+            </Link>
           </div>
           <button
             onClick={deleteList}

@@ -1,5 +1,6 @@
 import storeApi from "../api/storeApi";
 import { types } from "../types/types";
+
 export const startLoadProducts = () => {
   return async (dispatch) => {
     try {
@@ -29,7 +30,6 @@ export const startDelProduct = (id) => {
   return async (dispatch) => {
     try {
       const { data } = await storeApi.delete(`/productos/${id}`);
-      console.log(data);
       dispatch(deleteP(data));
     } catch (error) {
       console.log(error);

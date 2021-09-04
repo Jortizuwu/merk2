@@ -40,13 +40,15 @@ export const Navbar = () => {
             </button>
           </div>
           <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start h-11 space-x-3">
-            <Link to="/" className="flex-shrink-0 flex items-center">
-              <img
-                className="hidden sm:block h-full w-auto"
-                src="https://i.imgur.com/G1AVCyy.jpg"
-                alt="Workflow"
-              />
-            </Link>
+            <button
+              onClick={() => {
+                dispatch(logOut());
+                localStorage.removeItem("token");
+              }}
+              className="hidden sm:block material-icons text-xl lg:text-3xl bg-white p-1 rounded-full text-red-400 hover:text-black focus:outline-none focus:ring-2  focus:ring-offset-gray-800 focus:ring-white"
+            >
+              logout
+            </button>
           </div>
           <div className="absolute left-14 inset-y-0 right-0 flex w-11/12 space-x-3 items-center justify-between pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <div className="flex flex-col ">
@@ -77,15 +79,18 @@ export const Navbar = () => {
                 home
               </NavLink>
             </div>
-            <div className="flex flex-col items-center justify-center">
+            <div className="flex flex-col items-center justify-center relative">
               <NavLink
-                to="/hola2"
+                to="/chat"
                 exact
                 activeClassName="bg-black text-white"
-                className="flex items-center ml-3 text-xl lg:text-3xl material-icons bg-white p-1 rounded-full text-gray-400 hover:text-black focus:outline-none focus:ring-2  focus:ring-offset-gray-800 focus:ring-white"
+                className=" flex items-center ml-3 text-xl lg:text-3xl material-icons bg-white p-1 rounded-full text-gray-400 hover:text-black focus:outline-none focus:ring-2  focus:ring-offset-gray-800 focus:ring-white"
               >
                 question_answer
               </NavLink>
+              <div className="text-xs bg-pink-400 h-3 w-3 rounded-full flex items-center flex-col justify-center text-white font-bold absolute top-1 z-0">
+                1
+              </div>
             </div>
             <div className="flex flex-col items-center justify-center relative ">
               <NavLink
@@ -133,6 +138,7 @@ export const Navbar = () => {
             <button
               onClick={() => {
                 dispatch(logOut());
+                localStorage.removeItem("token");
               }}
               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium bg-red-500"
             >

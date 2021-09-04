@@ -12,7 +12,6 @@ import { startLoadProducts } from "../../action/Products";
 
 export const UnplashPage = () => {
   const { pinesHomes, modalOpen } = useSelector((state) => state.ui);
-  const user = useSelector((state) => state.auth);
   const { products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
@@ -25,10 +24,6 @@ export const UnplashPage = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    localStorage.setItem("token", JSON.stringify(user.token));
-  }, [user]);
-
-  useEffect(() => {
     uwu();
   }, []);
 
@@ -39,11 +34,11 @@ export const UnplashPage = () => {
       <div className="w-11/12 mx-auto max-w-screen max-w-5xl">
         <Categories />
         <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
-          <ArticlueContainer title="Mas relevantes" description="Hola uwu" />
-          <ArticlueContainer title="Mas recientes" description="Hola uwu" />
+          <ArticlueContainer title="Más relevantes" description="Productos mas visto por los usuarios 🤑" />
+          <ArticlueContainer title="Más recientes" description="Productos subidos recientemente 🥵" />
           <ArticlueContainer
             title="Te podrina interesar"
-            description="Hola uwu"
+            description="Podrian ser de tú interes 🧐"
           />
         </div>
         {pinesHomes.length > 0 ? (

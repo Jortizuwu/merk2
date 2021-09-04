@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { Navbar } from "../components/global/Navbar";
+import { Chat } from "../components/home/Chat";
 import { Saved } from "../components/home/Saved";
 import { UnplashPage } from "../components/home/UnplashPage";
 import { ProductPage } from "../components/Product/ProductPage";
@@ -16,6 +17,7 @@ export const PagesRouter = () => {
         <Route exact path="/saved" component={Saved} />
         <Route exact path="/profile" component={ProfileScreen} />
         <Route exact path="/product/:id" component={ProductPage} />
+        <Route exact path="/chat" component={Chat} />
         <Route exact path="/uwu/:title" component={Sponsor} />
         <Redirect to="/" />
       </Switch>

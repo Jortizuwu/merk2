@@ -4,7 +4,7 @@ const initialState = {
   status: "checking",
   token: null,
   user: null,
-  errorMessage:null,
+  errorMessage: null,
 };
 
 export const authReducer = (state = initialState, action) => {
@@ -31,12 +31,17 @@ export const authReducer = (state = initialState, action) => {
         user: action.payload.user,
       };
     case types.logout:
-    case "notAuthenticated":
+    case types.notAuthenticated:
       return {
         ...state,
         status: "no-authenticated",
         token: null,
         user: null,
+      };
+    case types.loadProfileImage:
+      return {
+        ...state,
+        user: action.payload,
       };
     default:
       return state;

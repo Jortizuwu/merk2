@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Carousel } from "react-responsive-carousel";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
 import { addSaveList, deleteSaveList } from "../../action/ui";
@@ -103,27 +103,34 @@ export const ProductPage = ({ history }) => {
             {formatterPeso.format(producto.precio)}
           </p>
           <div className="flex flex-row w-full space-x-2">
-            <button
+            <Link
+              to="/chat"
               className={`${
                 change ? "w-1/2" : "w-full"
               }  h-10 text-xs bg-blue-500 text-white flex items-center justify-center rounded-md font-bold hover:bg-blue-400 transition duration-200 px-3`}
             >
               Comprar ahora
               <span className="material-icons ml-2">shopping_cart</span>
-            </button>
+            </Link>
             {change && (
-              <button className="w-1/2 h-10 text-xs bg-green-500 text-white flex items-center justify-center hover:bg-green-400 transition duration-200 rounded-md font-bold px-3">
+              <Link
+                to="/chat"
+                className="w-1/2 h-10 text-xs bg-green-500 text-white flex items-center justify-center hover:bg-green-400 transition duration-200 rounded-md font-bold px-3"
+              >
                 Proponer intercambio
                 <span className="material-icons ml-2">
                   published_with_changes
                 </span>
-              </button>
+              </Link>
             )}
           </div>
-          <button className="w-full h-10 text-xs bg-green-500 text-white flex items-center justify-center rounded-md font-bold hover:bg-green-400 transition duration-200 px-3">
+          <Link
+            to="/chat"
+            className="w-full h-10 text-xs bg-green-500 text-white flex items-center justify-center rounded-md font-bold hover:bg-green-400 transition duration-200 px-3"
+          >
             Contactar al vendedor
             <span className="material-icons ml-2">contact_phone</span>
-          </button>
+          </Link>
           <h5 className="font-semibold">Descripcion</h5>
           <p className="text-sm">
             Lorem ipsum dolor sit amet consectetur adipisicing elit

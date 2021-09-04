@@ -6,20 +6,25 @@ export const Saved = () => {
   const { saveList } = useSelector((state) => state.ui);
   const [total, setTotal] = useState(0);
 
-  // useEffect(() => {
-  //   const sumaTotal = () => {
-  //     let acu = 0;
-  //     saveList
-  //       .map((a) => parseFloat(a.precio))
-  //       .forEach((element) => {
-  //         acu += element;
-  //       });
-  //     setTotal(acu);
-  //   };
-  //   sumaTotal();
-  // }, [saveList]);
+  useEffect(() => {
+    const sumaTotal = () => {
+      let acu = 0;
+      saveList
+        .map((a) => parseFloat(a.precio))
+        .forEach((element) => {
+          acu += element;
+        });
+      setTotal(acu);
+    };
+    sumaTotal();
+  }, [saveList]);
 
-  console.log(saveList);
+  const formatterPeso = new Intl.NumberFormat("es-CO", {
+    style: "currency",
+    currency: "COP",
+    minimumFractionDigits: 0,
+  });
+
 
   return (
     <>
@@ -44,7 +49,7 @@ export const Saved = () => {
             className="w-full flex mt-3 items-center bg-green-500 justify-center text-white h-10 font-semibold"
             type="submit"
           >
-            total {total}.000
+            total { formatterPeso.format(total)} COP
           </button>
         </div>
       ) : (

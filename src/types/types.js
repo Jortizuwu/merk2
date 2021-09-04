@@ -16,8 +16,10 @@ export const types = {
   logout: "[auth] logout",
   loadingInfoUser: "[auth] loading info user",
   loadingGoogle: "[auth] loading google",
-  addError:"[auth] addError",
-  removeError:"[auth] removeError",
+  addError: "[auth] addError",
+  removeError: "[auth] removeError",
+  notAuthenticated: "[auth] notAuthenticated",
+  loadProfileImage: "[auth] loadIMage",
 
   //productos
   loadProducts: "[Products] loadProducts",
@@ -28,7 +30,7 @@ export const types = {
   loadProduct: "[loadProduct] loadProduct",
   updateProduct: "[updateProduct] updateProduct",
   uploadImageProduct: "[uploadImageProduct] uploadImageProduct",
-  loadingProducto:"[] loading"
+  loadingProducto: "[] loading",
 };
 
 // 'singUp'
@@ -36,4 +38,3 @@ export const types = {
 // 'removeError
 // 'notAuthenticated
 // 'logout'
-
