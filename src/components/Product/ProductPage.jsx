@@ -15,6 +15,8 @@ import { Spinner } from "../global/Spinner";
 export const ProductPage = ({ history }) => {
   const { saveList } = useSelector((state) => state.ui);
   const producto = useSelector((state) => state.product);
+  const { user } = useSelector((state) => state.auth);
+
   const [isLoading, setLoading] = useState(true);
 
   const { products } = useSelector((state) => state.products);
@@ -102,35 +104,43 @@ export const ProductPage = ({ history }) => {
             <span className="font-semibold">Precio</span> COP{" "}
             {formatterPeso.format(producto.precio)}
           </p>
-          <div className="flex flex-row w-full space-x-2">
-            <Link
-              to="/chat"
-              className={`${
-                change ? "w-1/2" : "w-full"
-              }  h-10 text-xs bg-blue-500 text-white flex items-center justify-center rounded-md font-bold hover:bg-blue-400 transition duration-200 px-3`}
-            >
-              Comprar ahora
-              <span className="material-icons ml-2">shopping_cart</span>
-            </Link>
-            {change && (
+          {user.uid === producto.usuario?._id ? (
+            <div>vistas 0</div>
+          ) : (
+            <div className="flex flex-row w-full space-x-2">
               <Link
                 to="/chat"
-                className="w-1/2 h-10 text-xs bg-green-500 text-white flex items-center justify-center hover:bg-green-400 transition duration-200 rounded-md font-bold px-3"
+                className={`${
+                  change ? "w-1/2" : "w-full"
+                }  h-10 text-xs bg-blue-500 text-white flex items-center justify-center rounded-md font-bold hover:bg-blue-400 transition duration-200 px-3`}
               >
-                Proponer intercambio
-                <span className="material-icons ml-2">
-                  published_with_changes
-                </span>
+                Comprar ahora
+                <span className="material-icons ml-2">shopping_cart</span>
               </Link>
-            )}
-          </div>
-          <Link
-            to="/chat"
-            className="w-full h-10 text-xs bg-green-500 text-white flex items-center justify-center rounded-md font-bold hover:bg-green-400 transition duration-200 px-3"
-          >
-            Contactar al vendedor
-            <span className="material-icons ml-2">contact_phone</span>
-          </Link>
+              {change && (
+                <Link
+                  to="/chat"
+                  className="w-1/2 h-10 text-xs bg-green-500 text-white flex items-center justify-center hover:bg-green-400 transition duration-200 rounded-md font-bold px-3"
+                >
+                  Proponer intercambio
+                  <span className="material-icons ml-2">
+                    published_with_changes
+                  </span>
+                </Link>
+              )}
+            </div>
+          )}
+          {user.uid === producto.usuario?._id ? (
+            <div></div>
+          ) : (
+            <Link
+              to="/chat"
+              className="w-full h-10 text-xs bg-green-500 text-white flex items-center justify-center rounded-md font-bold hover:bg-green-400 transition duration-200 px-3"
+            >
+              Contactar al vendedor
+              <span className="material-icons ml-2">contact_phone</span>
+            </Link>
+          )}
           <h5 className="font-semibold">Descripcion</h5>
           <p className="text-sm">
             Lorem ipsum dolor sit amet consectetur adipisicing elit

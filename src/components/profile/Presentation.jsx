@@ -47,15 +47,15 @@ export const Presentation = () => {
             }
             alt=""
           />
-          <button
+          {/* <button
             type="submit"
             className="px-2 py-2 w-full text-white font-semibold mx-auto bg-red-500 hover:bg-red-600 focus:ring-4 rounded-md transform focus:scale-105 transition duration-200"
           >
             subir
-          </button>
+          </button> */}
         </form>
       </figure>
-      <div className="mt-6 md:mt-0 ml-0 md:ml-40 flex flex-col md:flex-row justify-center items-center md:items-start space-y-2">
+      <div className="mt-10 md:mt-0 ml-0 md:ml-40 flex flex-col md:flex-row justify-center items-center md:items-start space-y-2">
         <div className="flex flex-col items-center justify-between sm:items-start">
           <div className="flex flex-col md:flex-row md:items-baseline w-2/3 md:w-full space-x-5">
             <p className="text-2xl text-center md:text-left font-bold items-center">
